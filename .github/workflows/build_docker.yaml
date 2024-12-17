@@ -45,7 +45,7 @@ jobs:
   Build_Docker:
     name: Building_docker
     runs-on: ubuntu-latest
-    environment: docker-publish
+    environment: docker
     needs: Docker_to_build
     if: ${{ needs.Docker_to_build.outputs.files_to_build != '' }}
     steps:
