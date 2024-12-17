@@ -1,0 +1,16 @@
+name: Practice context 
+on: workflow_dispatch
+jobs:
+    jobs1:
+        name: job1
+        runs-on: ubuntu-latest
+        steps:
+            - name: context
+              run: |
+                echo "Pushed to branch: ${{ github.event.ref }}"   
+                echo "Repository Name: ${{ github.repository }}"
+                echo "Run ID: ${{ github.run_id }}"  
+                echo "Branch Name: ${{ github.ref }}"
+                echo "Commit SHA: ${{ github.sha }}"  
+                echo "Triggered by: ${{ github.actor }}"
+                echo "Event Type: ${{ github.event_name }}"    
