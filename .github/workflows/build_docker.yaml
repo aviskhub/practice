@@ -70,7 +70,7 @@ jobs:
           echo ">>> ${filetobuild[@]}"
           for element in "${filetobuild[@]}";
           do
-             docker image build -t abhishekimage/${element}:latest -f ${{ github.workspace }}/dockerfile/default/${element} .
+             docker image build -t abhishekimage/${element}:latest -f ${{ github.workspace }}/dockerfile/${element} .
           done 
           echo "Listing all image"
           docker image ls
