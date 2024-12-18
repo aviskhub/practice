@@ -26,3 +26,11 @@ resource "aws_subnet" "public-aws_subnet" {
 }
 
 // IAM role for cluster 
+
+
+output "vpc" {
+  value = aws_vpc.cluster-vpc
+}
+output "subnet" {
+  value = aws_subnet.public-aws_subnet
+}
