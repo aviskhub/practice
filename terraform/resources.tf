@@ -62,6 +62,7 @@ resource "aws_eks_cluster" "cluster" {
     subnet_ids = [for key, value in aws_subnet.public-aws_subnet : value.id ]
     security_group_ids = [aws_security_group.eks-sg.id]
   }
+  depends_on = [ aws_iam_role_policy_attachment.cluster_AmazonEKSClusterPolicy ]
 }
 // iam role for worker node 
 
@@ -106,6 +107,9 @@ resource "aws_eks_node_group" "node-group" {
     min_size = 1
   }
   instance_types = ["t2.micro"]
+  depends_on = [ aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly , 
+                aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy ,
+                aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy]
 
 }
 
@@ -114,4 +118,10 @@ output "vpc" {
 }
 output "subnet" {
   value = aws_subnet.public-aws_subnet
+}
+output "eks-cluster" {
+  value = aws_eks_cluster.cluster
+}
+output "node-group" {
+  value = aws_eks_node_group.node-group
 }
