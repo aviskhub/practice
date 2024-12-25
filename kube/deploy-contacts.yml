@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: contact-deployment
+  labels:
+    purpose: learning
+    team: backend
+  annotation:
+    description: this is contact deployment for contact page 
+specs:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  replicas: 2
+  template:
+    metadata:
+      name: contacts-container
+      labels:
+        purpose: learning 
+        team: backend
+    spec:
+      containers: 
+        - name: contact-pod
+          image: abhishekimage/contact
+          ports:
+            container-Port: 80
+          livenessProbe:
+            httpGet:
+              path: /contacts.html
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 5
+                        

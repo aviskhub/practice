@@ -1,0 +1,9 @@
+# this is for learning 
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-namespace
+  labels:
+    purpose: learning
+    team: backend
+  annotation: this is default namespace created for learning features

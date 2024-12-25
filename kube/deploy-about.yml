@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: about-deployment
+  labels:
+    purpose: learning 
+    team: backend
+  annotation: this is about deployment for learning purpose 
+specs:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  replicas: 2    
+  selector:
+    match-labels:
+      page: about 
+  template:
+    metadata:
+      name: about-deployment 
+      labels:
+        purpose: learning
+        team: backend
+    spec:
+      containers:
+        - name: about-pod
+          image: abhishekimage/about
+          port:
+            - container-Port: 80
+          env:
+            name: env 
+            value: prod 
+          resources:
+            requests:
+              cpu: 500m
+              memory: 256mi
+            limits:
+              cpu: 500m
+              memory: 256mi  
+

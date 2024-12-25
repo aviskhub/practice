@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: home-deployment
+  labels:
+    team: backend 
+    purpose: learning
+  annotations:
+    description: this deployment is created for leaning purpose 
+specs:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  replicas: 2
+  selector:
+    match-labels:
+      page: home 
+  template:
+    metadata:
+      labels:
+        page: home
+    spec:    
+      containers:
+        - name: my-home-container
+          image: abhishekimage/home
+          ports:
+            - container-Port: 80
