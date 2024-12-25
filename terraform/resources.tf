@@ -113,6 +113,7 @@ resource "aws_eks_node_group" "node-group" {
 
 }
 
+
 output "vpc" {
   value = aws_vpc.cluster-vpc
 }
@@ -125,3 +126,4 @@ output "eks-cluster" {
 output "node-group" {
   value = aws_eks_node_group.node-group
 }
+
