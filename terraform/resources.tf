@@ -11,8 +11,7 @@ locals {
   public-cidr_block = {
     us-east-1a = "10.32.16.0/20",
     us-east-1b ="10.32.32.0/20",
-    us-east-1c ="10.32.64.0/20",
-    us-east-1d = "10.32.128.0/20"
+    us-east-1c ="10.32.64.0/20"
 }
 }
 
