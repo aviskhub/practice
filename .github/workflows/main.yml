@@ -1,9 +1,6 @@
 name: Infratructure creation
 run-name : ${{ github.actor }}
-on :
-  push:
-    paths:
-      - "terraform/**"
+on: worlflow_dispatch
 permissions:
   id-token: write
   contents: read
