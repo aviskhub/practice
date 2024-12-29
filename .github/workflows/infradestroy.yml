@@ -1,4 +1,4 @@
-name: Infratructure creation
+name: Infratructure destroy
 on: workflow_dispatch
 
 permissions:
@@ -58,11 +58,11 @@ jobs:
         run: | 
            ls
            cd terraform
-           terraform plan 
+           terraform plan --destroy
       - name: Terraform apply
         run: |
             cd terraform
-            terraform apply \
+            terraform destroy \
             -auto-approve 
 
 
