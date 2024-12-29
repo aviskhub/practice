@@ -1,6 +1,6 @@
 name: Infratructure creation
-run-name : ${{ github.actor }}
-on: worlflow_dispatch
+on: workflow_dispatch
+
 permissions:
   id-token: write
   contents: read
