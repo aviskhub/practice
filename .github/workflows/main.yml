@@ -1,4 +1,4 @@
-name: Infratructure
+name: Infratructure creation
 run-name : ${{ github.actor }}
 on :
   push:
