@@ -40,6 +40,7 @@ resource "aws_internet_gateway_attachment" "ig-attach" {
 resource "aws_route" "route" {
   route_table_id = aws_vpc.cluster-vpc.main_route_table_id
   gateway_id = aws_internet_gateway_attachment.ig-attach.id
+  destination_cidr_block = "0.0.0.0/0"
 }
 # // IAM role for cluster 
 # resource "aws_iam_role" "cluster-role" {
