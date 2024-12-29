@@ -9,9 +9,9 @@ resource "aws_vpc" "cluster-vpc" {
 
 locals {
   public-cidr_block = {
-    us-east-1a = "10.32.16.0/20",
-    us-east-1b ="10.32.32.0/20",
-    us-east-1c ="10.32.64.0/20"
+    ap-south-1a = "10.32.16.0/20",
+    ap-south-1b ="10.32.32.0/20",
+    ap-south-1c ="10.32.64.0/20"
 }
 }
 
@@ -120,10 +120,10 @@ output "vpc" {
 output "subnet" {
   value = aws_subnet.public-aws_subnet
 }
-output "eks-cluster" {
-  value = aws_eks_cluster.cluster
-}
-output "node-group" {
-  value = aws_eks_node_group.node-group
-}
+# output "eks-cluster" {
+#   value = aws_eks_cluster.cluster
+# }
+# output "node-group" {
+#   value = aws_eks_node_group.node-group
+# }
 
