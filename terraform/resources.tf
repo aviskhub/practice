@@ -27,6 +27,20 @@ resource "aws_subnet" "public-aws_subnet" {
   }
 }
 
+
+resource "aws_internet_gateway" "ig" {
+  vpc_id = aws_vpc.cluster-vpc.id
+}
+
+resource "aws_internet_gateway_attachment" "ig-attach" {
+  internet_gateway_id = aws_internet_gateway.ig.id
+  vpc_id = aws_vpc.cluster-vpc.id
+}
+
+resource "aws_route" "route" {
+  route_table_id = aws_vpc.cluster-vpc.main_route_table_id
+  gateway_id = aws_internet_gateway_attachment.ig-attach.id
+}
 # // IAM role for cluster 
 # resource "aws_iam_role" "cluster-role" {
 #   name = "eks-cluster-example"
