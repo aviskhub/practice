@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: home-deployment
   labels:
-    team: backend
     purpose: learning
   annotations:
     description: this deployment is created for learning purpose
@@ -16,11 +15,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:  
-      page: home
+      purpose: learning
   template:
     metadata:
       labels:
-        page: home
+        purpose: learning
     spec:
       containers:
         - name: my-home-container
