@@ -23,7 +23,7 @@ spec:
       containers:
         - name: about-pod
           image: abhishekimage/about
-          port:
+          ports:
             - containerPort: 80
           
 
