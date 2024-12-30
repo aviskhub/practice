@@ -6,4 +6,3 @@ metadata:
   labels:
     purpose: learning
     team: backend
-  annotation: this is default namespace created for learning features
