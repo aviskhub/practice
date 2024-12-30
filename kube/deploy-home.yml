@@ -15,14 +15,14 @@ spec:
       maxUnavailable: 1
   selector:
     matchLabels:
-      purpose: learning  # This label must match the label in the pod template
+      purpose: learning 
   template:
     metadata:
       labels:
-        purpose: learning  # Ensure the pod template has this same label
+        purpose: learning 
     spec:
       containers:
         - name: my-home-container
-          image: abhishekimage/home  # Ensure the image exists and is accessible
+          image: abhishekimage/home  
           ports:
-            - containerPort: 80  # Exposing port 80 inside the container
+            - containerPort: 80 
