@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service 
 metadata: 
-  name: LoadBalancer-service
+  name: loadBalancer-service
 spec:
   selector:
     team: backend
