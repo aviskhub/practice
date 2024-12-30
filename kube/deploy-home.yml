@@ -15,14 +15,14 @@ spec:
       maxUnavailable: 1
   selector:
     matchLabels:
-      page: home
+      team: backend
   template:
     metadata:
       labels:
-        page: home
+        team: backend
     spec:
       containers:
         - name: my-home-container
-          image: abhishekimage/home  
+          image: abhishekimage/home
           ports:
-            - containerPort: 80 
+            - containerPort: 80
