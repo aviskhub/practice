@@ -4,6 +4,7 @@ metadata:
   name: about-deployment
   labels:
     purpose: learning 
+    team: backend
 spec:
   strategy:
     type: RollingUpdate
@@ -14,11 +15,13 @@ spec:
   selector:
     matchLabels:
       purpose: learning 
+      team: backend
   template:
     metadata:
       name: about-deployment 
       labels:
         purpose: learning
+        team: backend
     spec:
       containers:
         - name: about-pod
